@@ -14,7 +14,7 @@ To get started with Medina Consultancy, follow these steps:
 
 1. **Clone the repository**:
   ```bash
-  git clone https://github.com/yourusername/medinaConsultancy.git
+  git clone https://github.com/medinavs/medinaConsultancy.git
   ```
 2. **Install dependencies**:
   ```bash
@@ -34,15 +34,6 @@ To get started with Medina Consultancy, follow these steps:
   ```bash
   go run ./main.go
   ```
-
-
-## Contributing
-
-We welcome contributions! Please read our [Contributing Guidelines](CONTRIBUTING.md) for more details.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Contact
 
