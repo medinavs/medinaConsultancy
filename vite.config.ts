@@ -12,12 +12,11 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://uj58p9e8la.execute-api.us-east-2.amazonaws.com/dev/consultancy/search',
+        target: 'https://uj58p9e8la.execute-api.us-east-2.amazonaws.com',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
+        rewrite: (path) => path.replace(/^\/api/, '/dev/consultancy/search'),
       },
     },
   },
   assetsInclude: ['**/*.jpg', '**/*.jpeg'],
-
 })
