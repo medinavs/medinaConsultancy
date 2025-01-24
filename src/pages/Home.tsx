@@ -21,7 +21,7 @@ export function Home() {
         <div className="h-screen w-screen bg-slate-950 overflow-hidden flex items-center justify-center">
             <motion.div key="modal" exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 2 } }}>
                 <main className="flex flex-col items-center justify-center gap-8 pb-20">
-                    <img src={"/src/assets/medinaLogo.jpg"} alt="Medina Logo" className="h-32 w-32 rounded-lg" />
+                    <img src={"https://i.ibb.co/S3M47DP/medina-Logo.jpg"} alt="Medina Logo" className="h-32 w-32 rounded-lg" />
                     <div className="flex flex-col items-center gap-4">
                         <h2 className="text-3xl text-slate-200 font-bold">Bem-vindo ao MedinaConsultancy</h2>
                         <p className="text-slate-200 text-center opacity-11">O seu parceiro de negócios para a transformação digital</p>
