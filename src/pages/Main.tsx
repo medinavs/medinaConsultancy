@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
-import { request } from "@/axios";
+import { request } from "@/api";
 import { DataItem } from "./types";
 import { CSVDownload } from "react-csv";
 
