@@ -2,14 +2,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { MagnifyingGlass } from "@phosphor-icons/react";
-import { set, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
-import axios from "axios";
 import { request } from "@/axios";
 import { DataItem } from "./types";
 import { CSVDownload } from "react-csv";
@@ -27,7 +26,7 @@ export function Main() {
         resolver: zodResolver(schemaType),
     });
 
-    const csvRef = useRef<any>(null)
+    const csvRef = useRef<CSVDownload>(null)
     const { toast } = useToast()
     const [loading, setLoading] = useState(false)
     const [completed, setCompleted] = useState(false)
@@ -54,7 +53,7 @@ export function Main() {
         mutationFn: async (data: SchemaType) => {
             setLoading(true);
             console.log(data)
-            const response = await request.post("consultancy/search", data);
+            const response = await request.post("", data);
             return response.data;
         },
         onSuccess: (data) => {
@@ -65,7 +64,7 @@ export function Main() {
             });
             setLoading(false);
         },
-        onError: (error: any) => {
+        onError: (error: { response?: { data?: { message?: string } } }) => {
             toast({
                 title: "Erro ao realizar a consulta",
                 description: error.response?.data?.message || "Ocorreu um erro inesperado",
