@@ -10,8 +10,16 @@ import { useRef, useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { request } from "@/api";
-import { DataItem } from "./types";
+import { DataItem, Geometry } from "./types";
 import { CSVDownload } from "react-csv";
+
+interface formattedDataProps {
+    "Nome": string
+    "Endereço": string
+    "Número": string
+    "Email": string
+    "Geometria": Geometry
+}
 
 const schemaType = z.object({
     search: z.string().nonempty(),
@@ -30,13 +38,12 @@ export function Main() {
     const { toast } = useToast()
     const [loading, setLoading] = useState(false)
     const [completed, setCompleted] = useState(false)
-    const [data, setData] = useState<DataItem[]>([])
+    const [data, setData] = useState<formattedDataProps[]>([])
 
     function handleFormatDataToCSV(data: DataItem[]) {
         setCompleted(false)
-        const formattedData: DataItem[] = data.map((item: DataItem) => {
+        const formattedData: formattedDataProps[] = data?.map((item: DataItem) => {
             return {
-                ...item,
                 "Nome": item.name,
                 "Endereço": item.formatted_address,
                 "Número": item.formatted_phone_number,

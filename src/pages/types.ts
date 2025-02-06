@@ -3,7 +3,7 @@ interface Location {
     lng: number;
 }
 
-interface Geometry {
+export interface Geometry {
     location: Location;
 }
 
